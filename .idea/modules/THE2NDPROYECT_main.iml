@@ -10,6 +10,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: com.sparkjava:spark-core:2.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.h2database:h2:1.3.148" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.12" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-simple:1.7.12" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-server:9.3.2.v20150730" level="project" />
