@@ -12,23 +12,35 @@
 
 </head>
 <body>
-
+<#setting number_format="computer">
 <div id="header">
     <h1>Practica #2</h1>
 </div>
 
 <div id="nav">
-    ver datos
+    <a href="/"> Ver datos </a>
     <br>
-    <a href="/add"> Agregar datos </a>
+    <b>Agregar datos</b>
     <br>
     borrar datos
 </div>
 
 <div id="section">
-    <h1>${message}</h1>
 
-
+    <form method="POST" action="add">
+        <fieldset>
+            <legend>Personal information:</legend>
+            First name:<br>
+            <input type="text" name="firstname" id="firstname" value="Mickey"><br>
+            Last name:<br>
+            <input type="text" name="lastname" id="lastname" value="Mouse"><br><br>
+            Matricula:<br>
+            <input type="text" name="matricula" id="matricula" value=""><br>
+            Phone:<br>
+            <input type="text" name="phone" id="phone" value=""><br><br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
 
 </div>
 

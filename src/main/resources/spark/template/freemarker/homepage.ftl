@@ -12,13 +12,13 @@
 
 </head>
 <body>
-
+<#setting number_format="computer">
 <div id="header">
 <h1>Practica #2</h1>
 </div>
 
 <div id="nav">
-    ver datos
+    <b>ver datos</b>
     <br>
     <a href="/add"> Agregar datos </a>
     <br>
@@ -34,14 +34,36 @@
         <th>Nombre</th>
         <th>Apellidos</th>
         <th>Telefono</th>
+        <th>Borrar</th>
+        <th>Editar</th>
     </tr>
-
+<#setting number_format="computer">
         <#list estudiantes as estudiante>
             <tr>
                 <td>${estudiante.getMatricula()}</td>
                 <td>${estudiante.getNombre()}</td>
                 <td>${estudiante.getApellido()}</td>
                 <td>${estudiante.getTelefono()}</td>
+                <td>
+
+                    <form method="POST" action="">
+                            <input type="hidden" id="kind" name="kind" value="erase">
+                            <input type="hidden" name="matricula" id="matricula" value="${estudiante.getMatricula()}">
+                            <input type="submit" value="Erase">
+                    </form>
+
+
+                </td>
+                <td>
+
+                    <form method="POST" action="">
+                        <input type="hidden" id="kind" name="kind" value="edit">
+                        <input type="hidden" name="matricula" id="matricula" value="${estudiante.getMatricula()}">
+                        <input type="submit" value="Edit">
+                    </form>
+
+
+                </td>
             </tr>
         </#list>
 </table>

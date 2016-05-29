@@ -27,17 +27,17 @@
 
 <div id="section">
 
-    <form method="POST" action="add">
+    <form method="POST" action="/add">
         <fieldset>
             <legend>Personal information:</legend>
-            First name:<br>
-            <input type="text" name="firstname" id="firstname" value="Mickey"><br>
-            Last name:<br>
-            <input type="text" name="lastname" id="lastname" value="Mouse"><br><br>
             Matricula:<br>
-            <input type="text" name="matricula" id="matricula" value=""><br>
+            <input type="text" name="matricula" id="matricula" value="${matricula}" disabled><br><br>
+            First name:<br>
+            <input type="text" name="firstname" id="firstname" value="${nombre}"><br><br>
+            Last name:<br>
+            <input type="text" name="lastname" id="lastname" value="${apellido}"><br><br>
             Phone:<br>
-            <input type="text" name="phone" id="phone" value=""><br><br>
+            <input type="text" name="phone" id="phone" value="${telefono}"><br><br>
             <input type="submit" value="Submit">
         </fieldset>
     </form>
