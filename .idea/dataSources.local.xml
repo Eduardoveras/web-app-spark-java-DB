@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="H2 - jdbc:h2:tcp://localhost:9092/~/test" uuid="62fd3d31-3879-4679-8e85-c8276558868b">
+    <data-source name="H2 - jdbc:h2:tcp://localhost:9092/~/test" uuid="9216fc55-549b-44a7-affe-f7070de76ae4">
       <secret-storage>master_key</secret-storage>
-      <first-sync>true</first-sync>
       <user-name>sa</user-name>
     </data-source>
   </component>
