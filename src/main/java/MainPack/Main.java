@@ -32,10 +32,6 @@ public class Main {
 
     public static void main(String[] args) throws Exception{
         Spark.staticFileLocation("/public");
-
-
-
-
             Class.forName(DB_DRIVER);
             Connection conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
             createBasicTable(conn);

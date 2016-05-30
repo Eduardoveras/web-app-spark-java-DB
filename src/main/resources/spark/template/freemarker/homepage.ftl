@@ -49,8 +49,7 @@
         <#list estudiantes as estudiante>
             <tr>
 
-
-                <td><a data-toggle="modal" href="#myModal">${estudiante.getMatricula()}</a></td>
+                <td><a data-toggle="modal" href="#${estudiante.getMatricula()}">${estudiante.getMatricula()}</a></td>
                 <td>${estudiante.getNombre()}</td>
                 <td>${estudiante.getApellido()}</td>
                 <td>${estudiante.getTelefono()}</td>
@@ -59,7 +58,7 @@
                     <form method="POST" action="">
                             <input type="hidden" id="kind" name="kind" value="erase">
                             <input type="hidden" name="matricula" id="matricula" value="${estudiante.getMatricula()}">
-                            <input type="submit" value="Erase">
+                            <input class="btn btn-default .btn-md" type="submit" value="Erase">
                     </form>
 
 
@@ -69,22 +68,52 @@
                     <form method="POST" action="">
                         <input type="hidden" id="kind" name="kind" value="edit">
                         <input type="hidden" name="matricula" id="matricula" value="${estudiante.getMatricula()}">
-                        <input type="submit" value="Edit">
+                        <input class="btn btn-default .btn-md"type="submit" value="Edit">
                     </form>
 
 
                 </td>
             </tr>
+
+
+
         </#list>
+
+
 </table>
 
+
+
 </div>
+<#list estudiantes as estudiante>
+<div id="${estudiante.getMatricula()}" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Perfil Estudiante</h4>
+            </div>
+            <div class="modal-body">
+                <p>Matricula: ${estudiante.getMatricula()}</p
+                <p>Nombre: ${estudiante.getNombre()}</p>
+                <p>Apellido: ${estudiante.getApellido()}</p>
+                <p>Telefono:${estudiante.getTelefono()}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</#list>
 
 <div id="footer">
 Copyright © Eduardo Veras
 </div>
 
-
+<!--
 <div id="myModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -93,7 +122,7 @@ Copyright © Eduardo Veras
                 <h4 class="modal-title">Perfil Estudiante</h4>
             </div>
             <div class="modal-body">
-                <p>Matricula:</p>
+                <p>Matricula:</p
                 <p>Nombre:</p>
                 <p>Apellido:</p>
                 <p>Telefono:</p>
@@ -105,6 +134,6 @@ Copyright © Eduardo Veras
         </div>
     </div>
 </div>
-
+-->
 
 </body>
