@@ -9,21 +9,23 @@
     <meta name="author" content="Eduardo Veras">
 
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
 
 </head>
 <body>
 <#setting number_format="computer">
-<div id="header">
-    <h1>Practica #2</h1>
-</div>
 
-<div id="nav">
-    <a href="/"> Ver datos </a>
-    <br>
-    <b>Agregar datos</b>
-    <br>
-    borrar datos
-</div>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <h3 class="navbar-text">Student Manager</h3>
+        <a type="button" href="/" class="btn btn-default navbar-btn">Ver Lista Estudiantes</a>
+        <a type="button" href="/add" class="btn btn-default navbar-btn">Agregar Estudiante Nuevo</a>
+    </div>
+</nav>
 
 <div id="section">
 
@@ -31,11 +33,11 @@
         <fieldset>
             <legend>Personal information:</legend>
             First name:<br>
-            <input type="text" name="firstname" id="firstname" value="Mickey"><br>
+            <input type="text" name="firstname" id="firstname" value="Mickey"><br><br>
             Last name:<br>
             <input type="text" name="lastname" id="lastname" value="Mouse"><br><br>
             Matricula:<br>
-            <input type="text" name="matricula" id="matricula" value=""><br>
+            <input type="text" name="matricula" id="matricula" value=""><br><br>
             Phone:<br>
             <input type="text" name="phone" id="phone" value=""><br><br>
             <input type="submit" value="Submit">

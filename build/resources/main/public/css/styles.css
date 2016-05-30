@@ -17,6 +17,11 @@
     width:350px;
     float:left;
     padding:10px;
+    position: fixed;
+    height: 200px;
+    margin: 5% auto;
+    left: 0;
+    right: 0;
 }
 #footer {
     background-color:black;
@@ -24,6 +29,13 @@
     clear:both;
     text-align:center;
     padding:5px;
+
+    position:fixed;
+    height:50px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    margin-bottom:0px;
 }
 
 a
@@ -35,4 +47,9 @@ a
 a:hover
 {
     opacity: 0.5;
+}
+
+body
+{
+    padding-top: 70px;
 }

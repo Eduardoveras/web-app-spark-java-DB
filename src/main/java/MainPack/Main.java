@@ -92,7 +92,7 @@ public class Main {
         get("/", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
             ArrayList<Estudiante> listaEst= selectFromTable(conn);
-            attributes.put("message", "Hello World!");
+            attributes.put("message", "Welcome.");
             attributes.put("estudiantes",listaEst);
             return new ModelAndView(attributes, "homepage.ftl");
 
@@ -121,8 +121,8 @@ public class Main {
     {
         Statement stmt = conn.createStatement();
         String sql = "UPDATE" +TABLE_NAME +
-                "SET nombre="+est.getNombre()+",apellidos="+est.getApellido()+", telefono="+est.getTelefono()+
-                "WHERE matricula = "+est.getMatricula();
+                "SET nombre='"+est.getNombre()+"',apellidos='"+est.getApellido()+"', telefono='"+est.getTelefono()+
+                "' WHERE matricula = "+est.getMatricula();
         System.out.println(sql);
         stmt.executeUpdate(sql);
     }
