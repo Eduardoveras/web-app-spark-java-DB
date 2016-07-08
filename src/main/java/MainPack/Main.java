@@ -2,11 +2,9 @@ package MainPack;
 
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
+import static spark.Spark.before;
 import static spark.Spark.get;
 import static spark.Spark.post;
 
@@ -36,6 +34,17 @@ public class Main {
             Connection conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
             createBasicTable(conn);
             createMainPage(conn);
+
+
+        post("/login", (request, response) -> {
+
+            String email = request.queryParams("email");
+            String pass = request.queryParams("pass");
+
+            response.redirect("/add");
+
+            return "hell";
+        });
 
 
         post("/add", (request, response) -> {
@@ -85,6 +94,21 @@ public class Main {
 
     public static void createMainPage(Connection conn)
     {
+        before("/*", (request, response) -> {
+            Boolean authenticated = false;
+            String auth = request.headers("Authorization");
+            if(auth != null && auth.startsWith("Basic")) {
+                String b64Credentials = auth.substring("Basic".length()).trim();
+                String credentials = new String(Base64.getDecoder().decode(b64Credentials));
+                System.out.println(credentials);
+                if(credentials.equals("admin:admin")) authenticated = true;
+            }
+            if(!authenticated) {
+                response.header("WWW-Authenticate", "Basic realm=\"Restricted\"");
+                response.status(401);
+            }
+        });
+        
         get("/", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
             ArrayList<Estudiante> listaEst= selectFromTable(conn);
@@ -107,6 +131,13 @@ public class Main {
             attributes.put("apellido",estud.getApellido());
             attributes.put("telefono",estud.getTelefono());
             return new ModelAndView(attributes, "editStudentPage.ftl");
+        }, new FreeMarkerEngine());
+
+        get("/login", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            attributes.put("message", "Welcome.");
+            return new ModelAndView(attributes, "login.ftl");
+
         }, new FreeMarkerEngine());
 
 

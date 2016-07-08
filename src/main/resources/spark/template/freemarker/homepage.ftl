@@ -68,7 +68,7 @@
                     <form method="POST" action="">
                         <input type="hidden" id="kind" name="kind" value="edit">
                         <input type="hidden" name="matricula" id="matricula" value="${estudiante.getMatricula()}">
-                        <input class="btn btn-default .btn-md"type="submit" value="Edit">
+                        <input class="btn btn-default .btn-md" type="submit" value="Edit">
                     </form>
 
 
