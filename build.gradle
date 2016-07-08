@@ -5,9 +5,20 @@ apply plugin: 'java'
 
 sourceCompatibility = 1.8
 
+archivesBaseName = "app"
+mainClassName = 'Main'
+applicationName = 'app'
+
 repositories {
     mavenCentral()
 }
+
+defaultTasks = ['stage']
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.6'
+}
+
 
 
 dependencies {
