@@ -1,1 +1,1 @@
-web: build/install/web-app-spark-java-DB/bin/web-app-spark-java-D
+web: build/install/web-app-spark-java-DB/bin/web-app-spark-java-DB
