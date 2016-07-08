@@ -4,15 +4,13 @@ package MainPack;
 import java.sql.*;
 import java.util.*;
 
-import static spark.Spark.before;
-import static spark.Spark.get;
-import static spark.Spark.post;
-
 import org.omg.PortableInterceptor.INACTIVE;
 import spark.ModelAndView;
 import spark.Spark;
 import spark.template.freemarker.FreeMarkerEngine;
 import sun.java2d.loops.ProcessPath;
+
+import static spark.Spark.*;
 
 
 /**
@@ -27,9 +25,18 @@ public class Main {
     private static final String DB_PASSWORD = "";
     private static final String TABLE_NAME= " estudiantes ";
 
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
+
 
     public static void main(String[] args) throws Exception{
         Spark.staticFileLocation("/public");
+        port(getHerokuAssignedPort());
             Class.forName(DB_DRIVER);
             Connection conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
             createBasicTable(conn);
